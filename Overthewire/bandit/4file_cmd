@@ -1,0 +1,51 @@
+file command is used to find a file with the required characteristics.
+Syntax:  find <path> -name <filename>
+eg.-	find . -name 1.sh		here it searches for the file with name 1.sh in present working directory(the path shown using dot as dot means current directory) 
+	find / -name 2.*		here it searches for all the files which are present in the whole system and have name 2 with any type of extension
+	find /root/Music -size 1033c	here it searches for all files present in Music directory in root which have a size of 1033bytes(c means bytes). If we use 1033b, then it means 1033 blocks
+
+
+find command has a large no of options or flags.We here will discuss only a few:
+(You can see all other options using man find)
+
+1.	-name	this flag checks for the file with the specified name 
+	eg.-  find . -name abc.txt		It searches for the file with name abc.txt in current directory. Remember it is case sensitive. here abc and Abc are different
+
+2.	-iname	this is same as name but here i stands for insensitive. So unlike name it is not case sensitive.
+	eg.-  find / -iname abc.txt		file / -iname AbC.txt		these both commands will show the same result
+[Note: There are many flags which have i in front of them similar to that in case of name. These can be seen using man find]
+
+3.	-size	it searches for the file with the given size in the command. Note that here size can be given in bytes, KBs, MBs, blocks, and many other formats which can be seen from man find
+	eg.-	find / -size 1033c	It searches for the files whoose size is 1033bytes as c here is given for bytes.we can use b for 512byte block, c for 1byte, w for 2bytes, k for kilobyte, M for megabyte, G for gigabyte
+
+4.	-executable	This searches for all the files that are executable 
+	! -executable	It searches for all the files which are not executable.[! can't be used for other flags]
+	eg.	find . -executeble	It searches for all files which are executable
+	eg.	find . -size 1033c ! -executeble	It searches for all files whoose size is 1033bytes and which are not executable
+
+5.	type	checks for the file of type specified in command
+	types are	b for block(buffered) special
+			c for character(unbuffered) special
+			d for directory 
+			p for named pipe(FIFO) 
+			f for regular file
+
+	eg.	find type -f	will search for all regular files
+
+6.	-readable	searches for files which are readable
+	-writable	searches for files which are writable
+
+	eg.	find -readable -size 1033c	searches for all readable files which are of size 1033 bytes
+	eg.	find -writable -type f -size 2120c	searches for all writable files which are of type regular files and have size 2120bytes. 
+
+7.	-user	searches for the files which are owned by user that is provided in the command.
+	eg.	find -user Harsh	It will search for all the files which are owned by the user Harsh.
+
+8.	-group	searches for the files which are owned by the group specified in the command.
+	eg.	find -group Harsh	It will search for all the files which are owned by the group Harsh
+
+
+
+SEE ALSO
+stat command: It shows the status of a file or a file system
+eg.  stat 1.sh   will show all the info about file 1.sh

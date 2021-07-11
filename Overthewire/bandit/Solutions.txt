@@ -1,0 +1,44 @@
+Level0:  ssh -port 2220 bandit0@bandit.labs.overthewire.org	# passwords are stored in a file named password	
+
+Level0->1:	cat readme	#passwd is stored in this file 
+Level1->2:	cat ./-		or	cat <full path of - >	#path of - file can be seen from pwd command. also - file can't be accessed directly using cat - as - is a special keyword used for stdin and stdout
+Level2->3:	cat 'spaces in this filename'	or	cat spaces\ in\ this\ filename		#spaces acts as seperators. so we need to use backslash before every space in order to access space not as a keyword or we can write the whole file name in a quotes
+Level3->4:	cd inhere
+		ls -a
+		cat .hidden
+Level4->5:	cd inhere
+		for x in {0..9}; do file ./-file0$x; done
+		 cat ./-file07
+Level5->6:	cd inhere
+		find . -type f -size 1033c ! -executable #output: ./maybehere07/.file2
+		cat <address in output of previous command> ie.- cat ./maybehere07/.file2
+Level6->7:	find / -user bandit7 -group bandit6 -size 33c 2>/dev/null		# here because we do not have access to all the permissions, so this command will show a lot of errors also for permission denied and it will be difficult to search file in such messed up output. To resolve this issue, we use 2>/dev/null which redirects stderr(1 for stdout,2 for stderr, 3 for stdin) to file /dev/null. and /dev/null is a file which throws away amy input that you give it as input.
+		<copy the output address and paste in cat command>
+		cat /var/lib/dpkg/info/bandit7.password
+Level7->8:	cat data.txt | grep millionth
+Level8->9:	cat data.txt | sort | uniq -u	or	sort data.txt |uniq -u
+Level9->10:	
+Level10->11:	
+Level11->12: 
+Level12->13: 
+Level13->14: 
+Level14->15: 
+Level15->16: 
+Level16->17: 
+Level17->18: 
+Level18->19: 
+Level19->20: 
+Level20->21: 
+Level21->22: 
+Level22->23: 
+Level23->24: 
+Level24->25: 
+Level25->26: 
+Level26->27: 
+Level27->28: 
+Level28->29: 
+Level29->30: 
+Level30->31: 
+Level31->32: 
+Level32->33: 
+Level33->34: 

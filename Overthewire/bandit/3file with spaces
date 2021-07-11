@@ -1,0 +1,18 @@
+As a space acts as a delimiter(seperator), we can't access files with soaces directly. That would take only first word of file as name.
+eg.- nano My File		This will search for file with name My as space acts as a seperator 
+
+To access files with spaces :
+1. we need to use backslash before every space as space is a special character. 
+   eg.- nano My\ File
+
+2. or the easiest method is to write the file name in commas
+   eg.- nano 'My File' 
+
+
+
+
+Note:   In bash scripting, to access any special character we need to use \ .
+	In bash scripting, if we get any error in the path of some command then check for the special characters and put a backslash before all the special characters.
+
+	eg.- while using some URL we may encounter & in the path of URL. So it will not open the correct Url, instead it will open the incomplete Url.
+        This happens becoz bash takes URL before '&' only as & is a special character. We need to use a backslash before every & to make it work properly

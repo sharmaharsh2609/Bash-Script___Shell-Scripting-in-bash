@@ -1,0 +1,40 @@
+PACKAGE MANAGER or PACKAGE MANAGEMENT SYSTEM(PMS)
+     A package manager, also known as a package management system (PMS), is a program used to install, uninstall and manage software packages.
+
+     Software packages and package managers are often mentioned in connection to Unix and Unix-derived environments, such as Linux. A Linux distribution may consist of thousands of software packages. A package manager automates
+
+     Examples of package managers include Red Hat Package Manager (RPM), Yellowdog Updater, Modified (YUM) and Advanced Packaging Tool (APT). 
+
+  There are two types of packages in a Linux system:
+
+   (1)  Binary packages: These contain configuration files, executables, man pages among other documentation. For Debian, the binary packages have a .deb file extension. For Red Hat, the binary packages bear a .rpm file extension. Binary packages are unpacked using the Debian utility dpkg – For .deb binary files and rpm for .rpm binary packages as we shall see later on.
+   (2) Source packages: A source package is a compressed file that contains the source code of the application, a brief description of the package, and instructions on how to build the application.
+
+  Debian provides APT (Advanced Package Manager) as a front-end package management solution. It’s a powerful command-line utility that works with core libraries and allows you to download, install, update and remove packages from your system.
+
+
+
+(a) To update all the sources of your computer.
+     It’s always recommended to update the repositories in the /etc/apt/sources.list file before installing any package. To accomplish this, run the command:	sudo apt update 
+     sudo apt update		what we are doing when we enter this “sudo apt update” command is we are asking our Linux machine to go browse these lists(The list of repositories is defined in the /etc/apt/sources.list file and /etc/sources.list.d directory) and copy the latest version of them and put them in our computers!
+
+(b) To install some software package
+     apt-get install <packagfe name>
+    eg.-	apt-get install bc	#This will install the bc package if it is not already in the system and then we will be able to use bc command in our system
+
+(c) To search a package before installing:
+     apt search <package name>
+
+(d) To display information of a package:
+     apt show <package name>			#If any time you ccome with error permission denied then use sudo command before the any given command
+
+(e) To remove a package from your system
+     sudo apt remove <package name>
+
+(f) To upgrade a package
+     sudo apt upgrade
+
+Also study the difference in apt and apt-get
+
+LINK: https://www.tecmint.com/manage-software-packages-in-linux/#:~:text=%20There%20are%20two%20types%20of%20packages%20in,code%20of%20the%20application%2C%20a%20brief...%20More%20
+LINK: https://embeddedinventor.com/sudo-apt-update-command-explained-for-beginners/

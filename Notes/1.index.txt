@@ -1,0 +1,10 @@
+2.0- Shortuc Keys
+
+2.1- (1)different shells in a system 
+     (2)How to know the OS and other information about your system 
+
+2.2- Domain and Subdomain
+     Crawling meaning
+
+2.3- PMS(Package Management System/)
+     APT(Advanced Packaging Tool)-install, upgrade, remove packages

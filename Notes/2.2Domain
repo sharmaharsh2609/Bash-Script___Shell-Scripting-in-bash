@@ -1,0 +1,24 @@
+DOMAIN:
+
+To have a website that lives on the internet, you’re going to need a domain name. Without a domain name, there’s no way for visitors to access your website!
+
+Before domain names were invented, you needed to type in the IP address for a given website to access it. Today, domain names act as a placeholder for the complex string of numbers known as an IP address. So, instead of typing in a series of numbers like 32.222.46.1 you type in hostgator.com into your browser.
+
+This makes things much easier and makes the consumer internet much more user-friendly.
+
+When you’re trying to find the perfect domain name, you’ll not only have to come up with the perfect domain name, but you’ll need to choose a domain extension as well.
+
+This is the “.com,” “.net,” “.org” portion of a domain name. The domain name extension you choose will influence how your visitors perceive your domain, so choose wisely.
+
+
+SUBDOMAIN:
+
+Subdomains are a part of the main domain name. They are usually used for separating different sections of a website. You would already have seen thousands of subdomains of different websites at this point. Here’s a quick example to help you understand what a subdomain is.
+
+Facebook’s main website loads up at facebook.com but It also has a mobile version that loads up when you visit m.facebook.com. Here “m” is the subdomain of facebook.com (root domain). Similarly, there can be any subdomain. www is also a subdomain but It’s a special type of subdomain which the Hosting companies or Domain registrars create automatically. Other subdomains can be shop.website.com, photos.website.com, etc.
+
+
+
+CRAWLING:(Meaning of crawling in computing)
+
+Crawl is a term describing a bot, script, or software program that visits a web page and grabs content and links from it. Once completed, the program visits the next link in the list or a link obtained from the web page it had recently visited

@@ -1,0 +1,7 @@
+1. ctr+L : to goto the search bar on google or any other app
+
+2. Command to open firefox:		firefox
+   or we can use command		/usr/bin/firefox
+    To open certain link at firefox, we can provide the URL after firefox
+    eg.-		firefox https://web.whatsapp.com/
+    this will open whatsapp on firefox

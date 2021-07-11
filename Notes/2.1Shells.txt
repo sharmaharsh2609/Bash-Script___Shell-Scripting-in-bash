@@ -1,0 +1,14 @@
+1. We have different shells present in our system which we can know by using command:		cat /etc/shell
+   There is a file named shell stored in /etc directory which contains the names of all the shells present in our system.
+   By default our system uses bash shells in older versions of Kali. But the latest versions of kali uses zsh as the default shell. 
+   Now zsh have its own different features and bash has its own different features. So in some areas zsh overcome the difficulties faced by bash and in some cases bash overcomes the difficulties faced by zsh.
+
+2. To check the system release and other info about your system you can use command:		cat /etc/os-release
+   or we can use another command:		uname -a		where uname command is used to display the software and hardware information in current running Linux system. 
+   and -a flag is used to display all the information. coz uname command alone displays your os. using different flags with iname gives us different info about our system but using -a flag gives us all the info.
+   There are many differrent commands also to check our OS and other info that is available on google.
+
+[Note] Starting with Kali 2020.1 and also in furthur versions, there is no longer a superuser account and the default user is now a standard, non-privileged user. Until now, users have logged on to the system with the user “root” and the password “toor”. In Kali Linux 2020.1, both the default user and password will be “kali” username: kali
+       (My present version is kali 2020.2 while I'm writing this. But I've changed my settings and made my root as the main user by setting up a passwd for root. Check it out also how to do that.)
+
+3. 

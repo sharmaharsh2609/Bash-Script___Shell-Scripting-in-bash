@@ -1,0 +1,15 @@
+Dash (-) character at the end of the commands is a popular convention to refer stdin or stdout. 
+Dash is not a special character for filesystem or kernel.
+
+But, if you accidently create a file which begins with a dash (-) character, you’ll be realize that you can’t simply delete this file with regular rm command:
+This is becoz when you name a file as rm -testfile shell thinks that we are providing an option to rm command. 
+To resolve this issue we can use the full path of the file as /root/Desktop/-	or we can use    ./-     where ./ is the path of current directory
+
+
+
+Note: As discussed earlier shell recognizes - as a special character but for system - is not a special character.
+      So when we use command cat -   , the shell recognizes - as STDIN or STDOUT and not as a file.
+      But when we use		echo Hello > -			then here With bash redirection, - is not recognised as a special filename, so bash will use that as the literal filename.
+      so we can also use this method to access the file -
+
+      And if we want to use STDIN or STDOUT in place in the echo statement to take input from file, then we can use command	echo Hello > /dev/stdout	as - is not recognized as a special character in this case
