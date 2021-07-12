@@ -1,3 +1,6 @@
+#As explained in lvl14-->15 password of every level is stored in /etc/bandit_pass/bandit(0..35)  But it can only be accessed by the same user. for eg- password of lvl14 can only be seen by user bandit14 
+
+
 Level0:  ssh -port 2220 bandit0@bandit.labs.overthewire.org	# passwords are stored in a file named password	
 
 Level0->1:	cat readme	#passwd is stored in this file 
@@ -19,10 +22,14 @@ Level7->8:	cat data.txt | grep millionth
 Level8->9:	cat data.txt | sort | uniq -u	or	sort data.txt |uniq -u
 Level9->10:	
 Level10->11:	
-Level11->12: 
-Level12->13: 
-Level13->14: 
-Level14->15: 
+Level11->12:	cat data.txt | tr [a-z] [n-za-m] | tr [A-Z] [N-ZA-M]		#tr or translate command is used for translating a range of characters or squeezing similar characters and of many more use.
+	or	cat data.txt | tr [a-zA-Z] [n-za-mN-ZA-M]	
+Level12->13:	
+Level13->14:	ssh -i sshkey.private bandit14@localhost	#Here -i is used as these are on same server.. Note here we are connecting to bandit14 user on host_name: localhost and not on bandit.overthewire... Synatax of conneting to user on same device: ssh -i <private_key_name> <username@hostname>
+		#Now we're connected to bandit14 
+		cd /etc/bandit_pass
+		cat bandit14
+Level14->15:	#check here: https://medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-14-level-15-820b1a9fb3e2
 Level15->16: 
 Level16->17: 
 Level17->18: 
