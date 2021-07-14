@@ -30,9 +30,39 @@ Level13->14:	ssh -i sshkey.private bandit14@localhost	#Here -i is used as these 
 		cd /etc/bandit_pass
 		cat bandit14
 Level14->15:	#check here: https://medium.com/@theGirlWhoEncrypts/overthewire-bandit-level-14-level-15-820b1a9fb3e2
-Level15->16: 
-Level16->17: 
-Level17->18: 
+Level15->16:	
+Level16->17:	nmap -v -A -p 31000-32000 localhost	#Here we scan for all the open ports with 
+	or	nmap -v -A -T4 -p 31000-32000 localhost	#Here we can see in output that only 2ports were providing ssl service(this is shown by using -A flag). Also note that without -v flag(verbosity), we can't see what's happening there in this command
+		#on connecting with port:31518 through ssl, it prints the same string that we give input.So I tried connecting at port:31790
+		openssl s_client -connect localhost:31790	#It connects us to the port 31790. and on giving input as password of bandit16, it shows us a private RSA key.
+		#copy the RSA key displayed on the output and paste it in a file(newly created)
+		#as given in lvl12, we do not have permission to write in home dir, so I created a dir in /tmp and created a file in that dir and I pasted the RSA key in that file
+		mkdir /tmp/harsh
+		cd /tmp/harsh
+		touch private.key	#I pasted the RSA key in this file(RSA key that was obtained from connecting to port 31790)
+		#To make this key private so that only user that created it can use it we change it's mode to600.You can read for chmod 600 or we use chmod 400 and chmod 600 on google
+		chmod 600 private.key
+		#Now I connected to bandit17 similar to as we did in lvl13
+		ssh -i private.key bandit17@localhost
+		#now we are logged in to bandit17.
+		#As given in lvl14, password of every user is stored in /etc/bandit_pass/bandit<1..34>
+		cat /etc/bandit_pass/bandit17	#it shows the password
+Level17->18:	diff password.old password.new
+		#it shows 2 ouputs which differ. one among which must be from old and one must be from new that is modified from old. So I tried grep for both on new file
+		cat passwords.new | grep kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+		#Output:	kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+		cat passwords.new | grep w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii
+		#no output in this case which means only 1st one belongs to password.new and 1st one is the correct password
+or
+		diff password.new password.old
+		#output:	< kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd    # From "passwords.new" file
+		#		---
+		#		> w0Yfolrc5bwjS4qw5mq1nnQi6mF03bii    # From "passwords.old" file
+		#Lines preceded by a < are lines from the 1st file.
+		#Lines preceded by a > are lines from the 2nd file.
+		#The 3 dashes --- are merely separating the lines of 1st file from the 2nd file ones.
+		#So we can note that 1st output is from 1st file, i.e- password.new	which means 1st output is correct password
+
 Level18->19: 
 Level19->20: 
 Level20->21: 
