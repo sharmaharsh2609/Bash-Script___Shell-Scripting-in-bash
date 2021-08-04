@@ -63,19 +63,80 @@ or
 		#The 3 dashes --- are merely separating the lines of 1st file from the 2nd file ones.
 		#So we can note that 1st output is from 1st file, i.e- password.new	which means 1st output is correct password
 
-Level18->19: 
-Level19->20: 
-Level20->21: 
-Level21->22: 
-Level22->23: 
-Level23->24: 
-Level24->25: 
-Level25->26: 
-Level26->27: 
-Level27->28: 
-Level28->29: 
-Level29->30: 
-Level30->31: 
-Level31->32: 
-Level32->33: 
-Level33->34: 
+Level18->19:  #ssh allows us to execute commands in ssh statement by appending the desired command after the ssh command
+		
+		ssh -p 2220 bandit18@bandit.labs.overthewire.org ls -al
+		ssh -p 2220 bandit18@bandit.labs.overthewire.org cat readme
+or
+		ssh -p 2220 -T bandit18@bandit.labs.overthewire.org  #Here -T flag disables the sudo terminal which means now last session will not be continued from where it is left and thus bashrc file is not changed and we'll be able to connect successfully 
+or
+		ssh -p 2220 bandit18@bandit.labs.overthewire.org /bin/bash
+		#by using /bin/bash we do not use the bashrc file of the remote system. Instead we use our own bashrc for that and now we can write cat readme to see password
+
+Level19->20:	(After connecting, we can see file named bandit20-do using ls. We can see it's permissions using ls -l. Here we can see that in place of x(for execution permission), it has s option which means that user id is set). While a user id is set, then user can have some more permissions on some files.
+		ls
+		file -l		# here we can see that it has permissions rwsr-r--- which means user id is set to this file which is bandit20
+		./bandit20-do	#it shows us output that to run any command with user bandit20 in current user(that is bandit19), you need to execute this file before that command
+		./bandit20-do cat /etc/bandit_pass/bandit20	#it will show password for next level
+for more info:	 https://programmercave0.github.io/blog/2019/12/25/Bandit-Level-19-to-Level-20-OverTheWire
+
+Level20->21:	ls
+		ls -l	#it shows that file is setuid binary file
+		./suconnect	#it shows us that we need to pass the the port_number after ./suconnect to connect to the desired port number
+
+		#In the question it is given that if we make a connection with a port on localhost then if data sent throught that port is the password of lvl20 then it will send the password of lvl21 to that port.
+		#To send this all data, we need to make a listener connection. We can do that by using nc
+		
+		#open another terminal on remote server.
+		nc -l localhost -p 9999		#Here we create a TCP listener at port 9999
+		#Now we need to execute the given sudo file(setuid file with privilleges) to make a connection
+		./suconnect 9999	#it makes a connection with port 9999(If it is not working, then you can check if port is open or not using command: nc -v localhost <port_number>)
+		#now type the passwd of bandit 20 in the listener terminal and hit enter. Now suconnect file will send the data(in this case it is password for bandit21) to the listener connection if the password of bandit20 is correct that the listener mode sent.
+or
+		#or we can simply send the password during making connection also as folllows:
+		nc -l localhost -p 9999 < /etc/bandit_pass/bandit20
+or like this:
+		cat /etc/bandit_pass/bandit20 | nc -l localhost -p 9999 
+
+Level21->22:	cd /etc/cron.d
+		ls
+		cat cronjob_bandit22
+		#it executes a file named /usr/bin/cronjob_bandit22.sh. Let's see what is inside this file as this file is executing every minute, every hour as shown by all stars
+		cat /usr/bin/cronjob_bandit22.sh
+		#this file copies the password of bandit22 to the file /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+		cat /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv	#it shows the final password for next level
+
+Level22->23:	cd /etc/cron.d
+		ls
+		cat cronjob_bandit23
+		#it executes a file named /usr/bin/cronjob_bandit23.sh. Let's see what is inside this file as this file is executing every minute, every hour as shown by all stars
+		cat /usr/bin/cronjob_bandit23.sh
+		#this file stores the userid using whoami command in variable myname and then stores md5sum(which is an algorithm to store a value for any command or file which can be checked after a trasmission to check integrity) and then copies the password of bandit23 to the file /tmp/md5sum
+		whoami	#output is bandit22 as it is current user id
+		#note output for whoami is bandit22 which may causetrouble. Because this file is being executed in bandir23 user as seen in bandit23.
+		#so use bandit23 here not bandit22
+		echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+		#output is the hash for md5sum for this command and it copies the file into the md5sum(which is output) of this command
+		cat /tmp/(hash for md5sum obtained from above command)	#it shows the final password for next level
+
+Level23->24:	
+
+Level24->25:	
+
+Level25->26:	
+
+Level26->27:	
+
+Level27->28:	
+
+Level28->29:	
+
+Level29->30:	
+
+Level30->31:	
+
+Level31->32:	
+
+Level32->33:	
+
+Level33->34:	
