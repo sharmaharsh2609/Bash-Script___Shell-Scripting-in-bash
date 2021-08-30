@@ -9,7 +9,7 @@ mul=`expr $a \* $b`	#Note: Here we need to use \* for multipliccation as * is a 
 div=`expr $a / $b`
 modul=`expr $a % $b`
 
-echo "1. Sum: $sum"
+echo "1. Sum: $sum"		#we can use expr $a + $b directly in echo also without using any variable
 echo "2. Difference: $diff"
 echo "3. Multiplication result: $mul"
 echo "4. Division Result: $div"
