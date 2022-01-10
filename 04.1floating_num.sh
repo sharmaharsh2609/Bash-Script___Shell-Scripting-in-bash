@@ -17,5 +17,5 @@ echo "Div(With scale=3):"
 echo "scale=3;$num1/$num2" | bc		#as scale=3, so it will show upto 3decimal points
 
 echo "Sqrt_of _num1(with scale 5):"
-echo "scale=5;sqrt($num1)" | bc -l   	# -l uses the math library. 
+echo "scale=5;sqrt($num1)" | bc -l   	# -l uses the math library.
 

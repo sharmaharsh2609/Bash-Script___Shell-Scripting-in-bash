@@ -4,7 +4,7 @@ echo -e "Enter the file name : \c"	# using \c cursor do not move to next line. S
 read file_name
 
 echo "1. -e(Checks if file exists or not)"
-if [ -e $file_name ]	#above -e used in echo is different from that in if command 
+if [ -e $file_name ]	#above -e used in echo is different from that in if command
 then
 echo "$file_name found"
 else

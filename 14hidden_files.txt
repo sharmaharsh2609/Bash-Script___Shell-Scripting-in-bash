@@ -1,0 +1,32 @@
+
+### Creating hidden files
+- A hidden file is a file whose name start from .
+- We can create hidden files like this:              touch ./file
+
+### Converting a normal file to hidden file.
+- We can hide a "file" already present by changing it's name to . at beginning like this:
+	mv <file_name> .<file_name>
+	eg- mv harsh.sh .harsh.sh
+
+### To see the hidden file, we can use this command:
+	ls -a
+
+### To see the permissions of these hidden files, we can use this command:
+	ls -al
+
+
+
+#######   To execute hidden files.
+- Hidden files are generally excluded from the global expansion of bash shell.However you can alter that using the dotglob setting 
+
+- Hidden files can be visible to bash shell by changing the settings of doglob(read as do glob)
+	shopt -s dotglob
+
+- Now we can execute or do any command on the hidden files also and they are also visible on pressing tab.
+	echo .harsh.sh		# this will show the content of the hidden file .harsh.sh
+	./.harhs.sh		# this will execute the hidden file .harsh.sh
+	. .harsh.sh (or) source .harsh.sh    # this will execute the .harsh.sh file in same shell instead of opening a new shell
+
+
+- WE can always undo this above setting using command:
+	shopt -u doglob      # -s flag is to set the value abd -u flag is to unset the value

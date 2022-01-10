@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#Relational operators using if statement 
+#Relational operators using if statement
 
 count=10
 res=0		#res is to store the result of comparisons. res=0 if false and 1 if true
@@ -40,7 +40,7 @@ echo "In 2nd method = and  == can't be used for comparing integers. == is only u
 res=$?
 echo "2. Not_equal_to operator: $(( ! $res )) "
 
-(( $count > 9 )) 
+(( $count > 9 ))
 res=$?
 echo "3. Greater_than operator: $(( ! $res )) "
 

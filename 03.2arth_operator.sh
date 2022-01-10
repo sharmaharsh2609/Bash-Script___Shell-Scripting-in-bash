@@ -19,6 +19,6 @@ a=$b	#assignment operator
 echo -e "6. After assigning value of b to a:\ta=$a,  b=$b"
 
 [ $a == $b ]		#as we have assigned value of b to a 3lines above. so now value of a and b are same and this will give 1 as output
-echo "7. Result after comparing a and b: $(( ! $? ))" 
+echo "7. Result after comparing a and b: $(( ! $? ))"
 
 # If a==b statement gives true then statement is executed ssuccessfully. So it gives exit status 0. To get value 1 for true and 0 for false we negate the value of exit status

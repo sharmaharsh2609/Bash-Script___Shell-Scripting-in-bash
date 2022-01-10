@@ -1,0 +1,24 @@
+While using virtual box machines, we can use shared folders to share files between host and the guest machine
+
+
+Steps:
+1. Before starting your Guest
+2. Go to VirtualBox Manager
+3. Select your interested Guest
+4. Go to Guest Settings
+5. In Guest Settings, scroll the left side-menu, and go to Shared Folders
+6. In Shared Folders, add your interested folder in the Host machine.
+7. After adding your Host folder path, you will see an updated Folders List in Shared Folders. Remember your newly folder Name shown in this list. Say it is HOST_SHARE.
+9. Click OK and save your changes.
+10. Start your Guest machine
+11. In Guest machine, create a new folder, e.g. GUEST_SHARE
+12. In Guest terminal, type:
+		sudo mount -t vboxsf HOST_SHARE GUEST_SHARE`
+## where HOST_SHARE is folder name on the host machine and GUEST_SHARE is the folder name on guest machine.
+
+### Command to unmount a shared folder from guest machine:
+		sudo umount -R GUEST_SHARE        
+## In case someone has to unmount shared folder from guest machine, then we can use above command.
+## Be careful with it, umount -a may unmount all the host machine files. So make use of umount very carefully.
+
+=> Also we can't give same name to host and guest machine. It may cause errors sometimes while mounting in guest machine.

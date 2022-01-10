@@ -8,11 +8,8 @@ eg.-  ssh Harsh@10.0.2.15	where Harsh is username and 10.2.0.15 is IP address of
 -  by default ssh uses port number 22. But in some servers port number is not 22 and we neesd to define port number using flag -p <port_no>
 eg. ssh -p 2220 Harsh@10.0.2.15		
 
-
 example of domain name as host:  ssh -p 2220 bandit0@bandit.labs.overthewire.org
 Here in above example, bandit0 is the username and bandit.labs.overthewire.org is the domain name of the server. So here we use domain name as host
-
-
 
 - One very imp point is that while using ssh, the remote server and the client server should be turned on and both should be cconnected to the internet.
  This is the reason we cannot connect to the user stored in the same system becuase it is not turned on at the same time 

@@ -1,0 +1,37 @@
+#### Automating some tasks using bash
+
+- When we have something like: we have to goto a certain path all the times and then open virtual environment
+   and then come back to another path. We have to do a lot of steps everytime we open our system.
+- For this, we can create a bash  file which automates all these tasks.
+
+----------------------------------------------------------------------------------------------------------------
+- For this, we have to create a bash file and write the following commands
+	cd dir1/dir2/dir3/
+	source venv/bin/activate
+	cd /home/user/dir1/dir2/
+	jupyter notebook
+
+- This is an example of automation of activating virtual environment ehich is present in some folder
+  and then opening a jupyter notebook.
+
+############## How does a bash file execute ?
+
+- Generally, when we execute a bash file, it opens a new shell and executes all the commands inside that shell. 
+  And close that newly opened shell after the completion of execution.
+- So, if we write command:   "cd dir/dir2/.."
+  If we store this command in a bash file and execute that file, then executing a bash file opens a new bash shell
+  and on executing this command there, it changes the path in that newly opened shell. And when execution is complete,
+  it destroys that shell. But there is no change made in our original terminal shell
+
+############### Command to make our commands in a bash file affect in the current terminal:
+- When we execute our bash file using './file.sh' command then a new shell is opened
+- There are 2 other commands which are also used to execute a bash file also. But they execute bash file in same shell instead of creating a new shell for execution:
+	source harsh.sh
+		(OR)
+	. harsh.sh
+
+- source command and dot(.) command execute the bash file in same terminal. However they execute these files in different ways.
+
+- So we can automate any bash commands or opening firefox etc.. and then execute that file by using source or .command
+- This is the reason we activate any virtual environment by using command 'source venv/bin/activate'.
+  This command executes this activate file in same shell. This activate is a bash file which on execution makes changes in current terminal to open virtualenv. 

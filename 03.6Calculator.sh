@@ -8,7 +8,7 @@ do
  if [ $ch -eq 1 ]
  then
   echo "Enter 2 numbers to be added: "
-  read a ; read b
+  read a ; read b     #we can write 2 commands in as ingle line like this
   res=`expr $a + $b`
   echo "result of addition is: $res"
  elif [ $ch -eq 2 ]
@@ -38,7 +38,7 @@ do
  elif [ $ch -eq 6 ]
  then
   echo "Enter a numbers to find its squarw: "
-  read a 
+  read a
   res=`expr $a \* $a`
   echo  "Square of given number is: $res"
  else
